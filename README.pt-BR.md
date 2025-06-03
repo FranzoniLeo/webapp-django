@@ -7,5 +7,5 @@ Este é um sistema é a primeira versão de um blog desenvolvido com Django.
 - Visualização de perfil
 - Visualização de posts 
 
-🇺🇸 Read this in [English](README.en.md)
+🇺🇸 Read this in [English](README.md)
 
