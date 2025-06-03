@@ -1,0 +1,81 @@
+{% extends "usuarios/header_user.html" %}
+{% block content %}
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #7cc46c;
+  }
+
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-box {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    width: 320px;
+  }
+
+  .form-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    background: #f2f2f2;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .form-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-box button:hover {
+    background-color: #45a049;
+  }
+
+  .form-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+  }
+
+  .form-footer a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+    <div class="container">
+        <div class="form-box">
+            <form action= "{% url 'login' %}" method = "POST"> {% csrf_token %}
+                <input type="text" placeholder="username or email" name="username_email">
+                <input type="password" placeholder="password" name="password">
+                <button type="submit">LOGIN</button>
+            </form>
+            <div class="form-footer">
+                Don't have an account? <a href="{% url 'cadastro' %}">Register here</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
