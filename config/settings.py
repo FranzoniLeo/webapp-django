@@ -13,6 +13,14 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from django.contrib.messages import constants as messages
 from pathlib import Path
 from decouple import config
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://a4f43c8187646b8d3e4213f627334eb7@o4509469770645504.ingest.us.sentry.io/4509469772087296",
+    # Add data like request headers and IP for users,
+    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+    send_default_pii=True,
+)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +36,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'usuarios.CustomUser'
 
@@ -45,6 +53,10 @@ INSTALLED_APPS = [
     'contact',
     'blog',
     'usuarios',
+]
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]
 
 MESSAGE_TAGS = {
